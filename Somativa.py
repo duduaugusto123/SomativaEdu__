@@ -1,3 +1,4 @@
+
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -130,6 +131,7 @@ print("Variável que mais afeta a rotação do motor:", mais_afeta_rotacao)
 print("Variável que menos afeta a rotação do motor:", menos_afeta_rotacao)
 
 #Linearização
+plt.figure(4)
 tamanho = len(dados_dict["Rotacao"])
 contador = range (tamanho)
 log_Rotacao= []
@@ -181,8 +183,8 @@ print(len(dados_dict['Pressao Oleo']))
 matriz_corr=[log_Rotacao,log_Pressao_O,log_Pressao_A,log_Pressao_C,log_Pressao_A,log_Temperatura_O]
 rho_linearizado = np.corrcoef(matriz_corr)
 
-#Cálculo da correlação linear de Pearson
-mapa_calor = sb.heatmap(rho_linearizado, annot=True)
+
+mapa_calor = sns.heatmap(rho_linearizado, annot=True)
 plt.title("G)")
 
 
